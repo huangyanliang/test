@@ -1,0 +1,23 @@
+@charset "utf-8";
+*{margin:0px;padding:0px;font-size:12px; font-family:"微软雅黑";}
+body,div,li,ul,ol,dl,dd,dt,span,b,strong,p,h1,h2,h3,h4,h5{margin:0;padding:0;}
+ul,li,dl,dt,dd,ol{list-style:none;list-style-type:none;}
+a img,a{border:none;text-decoration:none;}
+body{font-size:12px; margin:0px; padding:0px;}
+input{margin:0px; padding:0px; outline:none;}
+input:focus{outline:none;}
+.cscreen{background:#000;position:absolute;top:0;left:0;z-index:10;display:none;filter:alpha(opacity=70);-moz-opacity:0.70;opacity:0.70;}
+.hide{ display:none; visibility:hidden;}
+
+/*错误提示*/
+.error-div{ width:800px; height:460px; background:#fafafa; position:fixed; top:50%; left:50%; margin:-230px 0 0 -400px; font-family:"微软雅黑"; overflow:hidden; border:dashed 2px #ddd;}
+.error-div .error-icon{ text-align:center; margin:30px auto 10px auto;}
+.error-div .error-tips{ text-align:center; height:30px; line-height:30px; color:#f37873; font-size:14px;}
+.error-div .error-tips img{ position:relative; top:20px;}
+.error-div .error-time{ margin:10px auto 10px auto;text-align:center;color:#adadb0;}
+.error-div .error-time span{ color:#f2a1a0;}
+.error-div .error-time a{color:#adadb0;}
+.error-div .error-switch1,.error-div .error-switch2{ height:35px; line-height:35px;text-align:center;}
+.error-switch1 a,.error-switch2 a{ color:#f2a1a0;}
+.error-div a:hover{color:#f37873;}
+.error-div .error-close{ font-size:23px; position:absolute; top:8px; right:12px; color:#adadb0; cursor:pointer;}

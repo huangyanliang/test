@@ -1,0 +1,100 @@
+@charset "utf-8";
+*{margin:0px;padding:0px;font-size:12px; font-family:"微软雅黑";}
+body,div,li,ul,,ol,dl,dd,dt,span,b,strong,p,h1,h2,h3,h4,h5{margin:0;padding:0;}
+ul,li,dl,dt,dd,ol{list-style:none;list-style-type:none;}
+a img{border:none;}
+a{text-decoration:none;outline:none !important;-moz-outline:none !important;}
+a:hover{ text-decoration:none !important;}
+a:active{ text-decoration:none !important;}
+body{font-size:12px; margin:0px; padding:0px;}
+button,input,textarea{ outline:none;}
+input{margin:0px; padding:0px;}
+.cscreen{background:#ccc;position:absolute;top:0;left:0;z-index:10;display:none;filter:alpha(opacity=70);-moz-opacity:0.70;opacity:0.70;}
+input:focus{ border:solid 1px #61ade7; outline: 0; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);}
+textarea{ height:25px; line-height:22px;border:solid 1px #cacaca;color:#333;border-radius:2px; padding-left:4px; overflow:hidden;}
+textarea:focus{ border:solid 1px #61ade7; outline: 0; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);}
+
+.myeditor{width:950px;height:300px;visibility:hidden;}
+.mypage{ margin:0px 10px 0 5px; height:30px; overflow:hidden; clear:both; float:right;}
+.mypage .pagination{ margin:0 5px 0 0; padding:0;}
+.mypage .page_num{ border-radius:2px 0px 0 2px !important; height:29px;}
+.mypage .input-group-addon{cursor:pointer; height:29px !important; padding:0 4px 0 4px;}
+.pubmain{ width:99%; min-width:1100px; height:auto; margin:0px auto; padding:0;}
+.pubmain h1{ height:45px; line-height:45px; border-bottom:solid 1px #d6d6d6; font-size:15px; margin:0 0 10px 0; padding:0; color:#636466;}
+.text,.textareatext,.textlong,.textsort,.textord,.textprice,.textstock,.textsno,.myprice{height:25px; width:400px; line-height:22px;border:solid 1px #cacaca;color:#333;border-radius:2px; padding-left:4px; overflow:hidden;}
+.textareatext{min-height:75px; width:600px; overflow:auto;}
+.textsort,.myprice{ width:100px;}
+.textprice,.textstock{ width:70px;}
+.textsno{ width:120px;}
+.textord{ width:34px; float:left; height:22px; border-right:none; margin:0; border-radius:0; line-height:20px; color:#666;}
+.btn-ord{ float:left;}
+.btn{ border-radius:0px; outline:none;}
+.btn-primary-outline{ padding:3px 4px;}
+.ckall{ color:#666; font-size:16px; cursor:pointer;}
+.ckone{ color:#999; font-size:14px; cursor:pointer;}
+.ckone:hover{ color:#666;}
+.ckallselected{ color:#4aa3df;}
+.hidetext{ width:200px; height:23px; line-height:23px; color:#666; border:solid 1px #fff; border-bottom:solid 1px #ddd; padding:2px; background:#fff; cursor:pointer;}
+
+.upload{ border:solid 1px #3178b6; background:#fff; text-align:right; border-radius:3px;color:#fff; clear:both;}
+.upload span{ width:90px; background:#3178b6; padding:0; margin:0; height:27px; display:block; float:right; position:relative; top:-0px; text-align:center; line-height:27px;}
+.upload span b{ margin:0 0 0 5px; font-weight:normal;}
+.uppicdiv{ margin:10px auto 6px 0;min-height:85px;max-width:400px; cursor:pointer; overflow:visible; display:none;}
+.picshow{ min-width:240px; max-width:390px; min-height:80px; margin:0px; float:left; background:#f8f7f5;border:solid 1px #c3bab3; outline: 0; -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(195, 186, 179, .6);box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(195, 175, 179, .6);}
+.picdiv{ min-height:50px;}
+.picdiv img{ text-align:center; display:block; margin:0px auto 5px auto; max-width:385px;}
+.picfoot{ height:20px; line-height:20px; margin:0 0 5px 0;}
+.picfoot span{ width:22px; height:20px; border:solid 1px #cbcbcd; background:#fff; text-align:center; line-height:20px; float:right; display:block; margin:0 5px 0 0; border-radius:2px; color:#a43838; cursor:pointer;}
+.picfoot b{ float:left; margin:0 0 0 5px; text-indent:3px; }
+.uploadify-progress {background: #e5e5e5;margin-top:7px;width:400px;}
+.uploadify-progress-bar {background: #3178b6;height:5px;width:1px;}
+
+.fileupload{ border:solid 1px #cacaca; background:#fff; text-align:right; border-radius:3px;color:#fff; clear:both;}
+.fileupload span{ width:90px; background:#3178b6; padding:0; margin:0; height:27px; display:block; float:right; position:relative; top:-0px; text-align:center; line-height:27px;}
+.fileupload span b{ margin:0 0 0 5px; font-weight:normal;}
+.upfilediv{background:#f8f7f5; border:dashed 1px #a8a9ab; border-radius:2px; margin:10px auto 6px 0;min-height:30px;max-width:400px; cursor:pointer; overflow:hidden; display:none;}
+.fileshow{ color:#666; height:30px; line-height:30px; text-indent:5px;}
+.del-file{ margin:8px 5px 0 5px;}
+.upfilename{ font-weight:bold; color:#666; margin:0 0 0 5px;}
+.uptips{ width:600px; height:17px;  margin:7px auto 0 0;}
+
+.atlasicon{ border:solid 1px #5cb85c; background:#fff; text-align:right; border-radius:3px;color:#fff; clear:both;}
+.atlasicon span{ width:90px; background:#5cb85c; padding:0; margin:0; height:27px; display:block; float:right; position:relative; top:-0px; text-align:center; line-height:27px;}
+.atlasicon span b{ margin:0 0 0 5px; font-weight:normal;}
+.upupatlas{background:#f8f7f5; border:dotted 1px #a8a9ab; border-radius:2px; margin:10px auto 6px 0;min-height:140px;max-width:700px; overflow:hidden; cursor:pointer;padding-bottom:5px; display:none;}/* overflow:hidden;*/
+.upupatlas h3{ height:32px; line-height:32px; font-weight:normal; border-bottom:dotted 1px #a8a9ab; overflow:hidden; padding:0; margin:0; font-size:14px; text-indent:3px; color:#666;}
+.upupatlas h3 span.piclimit{ color:#f00;}
+.upupatlas .atlaspic{ width:110px; height:110px;border:dotted 1px #ddd; background:#fff; padding:1px; float:left; margin:5px 0 0 5px; position:relative;}
+.upupatlas .atlaspic:hover{ border:dotted 1px #666;}
+.upupatlas .atlaspicfile{ width:106px; height:106px; margin:0px;}
+.upupatlas .atlaspicfile img{ width:106px;}
+.upupatlas .atlaspic .atlasdel{ background:url(../images/black.png) repeat 0 0; color:#fff; height:27px; line-height:27px; position:absolute; width:106px; text-align:center; font-size:12px; top:80px;}
+
+.search{ width:auto; height:40px; margin:0px auto; line-height:32px;}
+.dropdown-toggle{ padding:3px 8px;}
+.warning-div{ padding:4px 6px; border:solid 1px #f9eac9; margin:0 0 10px 0;}
+.success-div{ padding:4px 6px; border:solid 1px #b8e9a4; margin:0 0 10px 0;}
+.waterpos{ width:178px; height:178px; float:left; overflow:hidden; border:solid 1px #ddd; background:#fff;border-right:none; border-bottom:none;}
+.waterpos div{ width:59px; height:59px; float:left; text-align:center; overflow:hidden; line-height:58px; margin:0; border-right:solid 1px #ddd; border-bottom:solid 1px #ddd; cursor:pointer; display:block;}
+.waterpos div.selected{ background:#e6e6e6; color:#27a9e3; font-weight:bold;}
+
+.myfolder{ width:100px; height:100px; float:left; border:solid 1px #ddd; cursor:pointer;color:#666; margin:5px; overflow:hidden;}
+.myfolder:hover{ border:solid 1px #f6dc71; color:#333;}
+.myfolder .myfilenum{ margin-top:5px;}
+.myfolder .myfilenum span{ font-size:12px; margin:5px; font-weight:normal; color:#fff; padding:0px 7px; border-radius:15px; background:#337ab7;}
+.myfolder .myicon{ height:45px; line-height:65px; text-align:center;}
+.myfolder .myicon span{ font-size:30px; color:#f6dc71;}
+.myfolder .mytips{ height:35px; line-height:25px; text-align:center;}
+
+.syspicshow{ width:145px; height:190px; border:solid 1px #dcdcdc;margin:5px; float:left;}
+.syspicshow .sysmypic{ width:auto; height:155px;}
+.sysmypic img{ max-height:155px; max-width:136px; display:block; margin:3px auto 0px auto; border-radius:2px; padding:2px;}
+.sysmypic-foot{ height:27px; line-height:33px; overflow:hidden;}
+.sysmypic-foot font{ font-weight:normal; margin:0 0 0 10px;}
+.sysmypic-foot span{ float:right; margin:4px 5px 0 0; border:solid 1px #ddd; padding:3px; border-radius:2px;}
+.delmostdiv{ clear:both; margin:14px auto 0 10px;}
+.delmostdiv .icheckbox_minimal{ margin:0 8px 0 0;}
+.zomm-pic{ width:auto; height:25px; display:inline-block; float:left; background:#fff;}
+.zomm-pic img{ height:100%; border:solid 1px #ddd; border-radius:2px; padding:1px;}
+.waterdemo{ width:180px; height:34px; float:left; margin:5px 5px 0px 0px; overflow:hidden; border:solid 1px #dcdcdc; border-radius:2px; cursor:pointer;}
+.waterview div.selected{ border:solid 2px #3178b6;}
