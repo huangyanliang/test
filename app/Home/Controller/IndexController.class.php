@@ -10,15 +10,17 @@
 	 }
 	 $pro     = M('proshow')->field('pic,topic,en_topic,Id,intro,en_intro')->where('enabled=1')->order('ord asc,date desc')->limit('20')->select();
 	 $about   = M('aboutus')->field('pic,intro,en_intro')->where('enabled=1 and Id=1')->find();
-	 $new     = M('information')->field('Id,topic,en_topic,intro,en_intro,pic,date')->where('enabled=1 and inftype<>3')->order('ord asc,date desc')->limit(4)->select();
-	 $advan   = M('advantage')->field('Id,topic,en_topic,intro,en_intro')->where('enabled=1')->order('ord asc,date desc')->limit(5)->select();
+	 $new     = M('information')->field('Id,topic,en_topic,intro,en_intro,pic,date')->where('enabled=1 and inftype<>3')->order('ord asc,date desc')->limit(5)->select();
+	 $news    = M('information')->field('Id,topic,en_topic,intro,en_intro,date')->where('enabled=1 and inftype=3')->order('ord asc,date desc')->limit(5)->select();
+	 $topNew  = M('information')->field('Id,topic,intro,pic')->where('enabled=1 and inftype<>3 and istop=1')->order('date desc')->limit(1)->select();
 	 $this->assign('adv',$adv);
 	 $this->assign('pro',$pro);
 	 $this->assign('about',$about);
 	 $this->assign('metatitle','');
 	 $this->assign('en_metatitle','');
 	 $this->assign('new',$new);
-	 $this->assign('advan',$advan);
+	 $this->assign('news',$news);
+	 $this->assign('topNew',$topNew);
 	 $this->assign('mark','index');
      $this->display('index');
    }
@@ -128,6 +130,52 @@
 	   $this->assign('metakey',$data['keyword']);
 	   $this->assign('mark','product'); 
 	   $this->display('proshow');
+   }
+   
+   public function caselist(){//案例
+	   $inftype = I('get.inftype',0,'intval');
+	   $page    = I('get.p',1,'intval');
+	   $title   = '应用案例';
+	   $en_title= 'Case';
+	   $search  = 'enabled=1';
+	   if($inftype!=0){
+		  $title =getdata('casetype',$inftype,'topic');
+		  $en_title =getdata('casetype',$inftype,'en_topic');
+		  if($title=='') $this->error('There is no data！！！');
+		  $search .= ' and inftype='.$inftype;
+	   }
+	   $count     = M('caseshow')->where($search)->count();
+	   $pagesize  = 6;
+	   $pagecount = ceil($count/$pagesize);
+	   if($page>$pagecount) $page=$pagecount;
+	   $pobj    = new \Think\Page($count,$pagesize);
+	   $pro     = M('caseshow')->field('Id,topic,en_topic,pic,intro,en_intro')->where($search)->order('istop desc,ord asc,date desc')->page($page,$pagesize)->select();
+	   $this->assign('case',$pro);
+	   $this->assign('page',$pobj->show());
+	   $this->assign('casetype',$this->getdbdata('casetype'));
+	   $this->assign('inftype',$inftype);
+	   $this->assign('metatitle',$title);
+	   $this->assign('en_metatitle',$en_title);
+	   $this->assign('mark','case'); 
+	   $this->display('caselist');
+   }
+   
+    //案例详情
+   public function caseshow(){
+   	   $id      = I('get.id',0,'intval');
+	   if (!$id) $this->error('Valid data is not found, please try again。');
+	   $data    = M('caseshow')->field('*')->where('enabled=1 AND Id='.$id)->find();
+	   if(!$data) $this->error('There is no data！！！');
+	   $title   = getdata('casetype',$data['inftype'],'topic');
+	   $en_title   = getdata('casetype',$data['inftype'],'en_topic');
+	   $this->assign('data',$data);
+	   $this->assign('casetype',$this->getdbdata('casetype'));
+	   $this->assign('metatitle',$title);
+	   $this->assign('en_metatitle',$en_title);
+	   $this->assign('metades',$data['metades']);
+	   $this->assign('metakey',$data['keyword']);
+	   $this->assign('mark','case'); 
+	   $this->display('caseshow');
    }
    
    public function advan(){

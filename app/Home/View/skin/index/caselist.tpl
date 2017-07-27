@@ -5,11 +5,11 @@
     <div class="cut"></div>
     <div class="main">
     <div class="left_menu">
-        <div class="left_menu_T"><b>PRODUCTS</b> / 产品中心</div>
+        <div class="left_menu_T"><b>CASE</b> / 应用案例</div>
         <div class="left_menu_D">
           <ul>
-          <volist name="protype" id="protypeobj">
-            <li <if condition="$protypeobj['Id'] eq $inftype">class='left_ul_lis'<else/>class='left_ul_li'</if>><a href="{:U('index/prolist','inftype='.$protypeobj['Id'])}">{$protypeobj['topic']}</a></li>
+          <volist name="casetype" id="casetypeobj">
+            <li <if condition="$casetypeobj['Id'] eq $inftype">class='left_ul_lis'<else/>class='left_ul_li'</if>><a href="{:U('index/caselist','inftype='.$casetypeobj['Id'])}">{$casetypeobj['topic']}</a></li>
           </volist>
           </ul>
         </div>
@@ -25,12 +25,12 @@
       </div>
     
       <div class="right">
-        <div class="right_t"><strong>{$metatitle}</strong><span>当前位置 > <a href="{:U('index/index')}">首页</a> > <a href="{:U('index/prolist')}">产品展示</a> > {$metatitle}</span></div>
+        <div class="right_t"><strong>{$metatitle}</strong><span>当前位置 > <a href="{:U('index/index')}">首页</a> > <a href="{:U('index/caselist')}">应用案例</a> > {$metatitle}</span></div>
         <div class="right_con" style="padding:6px;">
-        <volist name="pro" id="proobj">
+        <volist name="case" id="caseobj">
              <div class="boxss" style="margin:20px 0px 0px 20px;">
-                <a href="{:U('index/proshow','id='.$proobj['Id'])}" title="{$proobj['topic']}"><img src="__pic__{$proobj['pic']}" width="250" height="190" alt="{$proobj['topic']}" />
-                <div class="box_dds"><h3>{$proobj['topic']}</h3><span class="ell2">{$proobj['intro']}</span></div></a>
+                <a href="{:U('index/caseshow','id='.$caseobj['Id'])}" title="{$caseobj['topic']}"><img src="__pic__{$caseobj['pic']}" width="250" height="190" alt="{$caseobj['topic']}" />
+                <div class="box_dds"><h3>{$caseobj['topic']}</h3><span class="ell2">{$caseobj['intro']}</span></div></a>
              </div>
         </volist>
         </div>

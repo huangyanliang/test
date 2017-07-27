@@ -1,10 +1,9 @@
 <extend name="Base/common" />
 <block name="main">
 <div class="pic_n"></div>
-<div class="cut"></div>
 <div class="main">
 <div class="left_menu">
-    <div class="left_menu_T"><dl><dd>关于我们</dd><dt>ABOUTUS</dt></dl></div>
+    <div class="left_menu_T"><b>ABOUT US</b> / 关于我们</div>
     <div class="left_menu_D">
       <ul>
       	<volist name="about" id="aboutobj">
@@ -13,41 +12,46 @@
       <li class='left_ul_lis'><a href="{:U('index/feedback')}">在线留言</a></li>
       </ul>
     </div>
-    <div class="tell_n">{$sysconf['tel']}</div>
-    <div class="address">{$sysconf['address']}</div>
+    <div class="contactBox">
+        <div class="feed_ts"><b>CONTACT US</b> / 联系我们</div>
+        <dl>
+          <dt><img src="__img__/tell.png" /></dt><dd>Tel：{$sysconf['tel']}</dd>
+          <dt><img src="__img__/faxs.png" /></dt><dd>Fax：{$sysconf['fax']}</dd>
+          <dt><img src="__img__/email.png" /></dt><dd>Email：{$sysconf['email']}</dd>
+          <dt style="border:0px;"><img src="__img__/addss.png" /></dt><dd style="border:0px;">Add：{$sysconf['address']}</dd>
+        </dl>
+        </div>
   </div>
 
   <div class="right">
     <div class="right_t"><strong>在线留言</strong><span>当前位置 > <a href="{:U('index/index')}">首页</a> > 在线留言</span></div>
     <div class="right_con">
 		<div class="feedback">
-		<!-- 留言开始 -->
-		<div class="onlin_t"><p>在线留言</p><span>ONLINE BOOKING</span></div>
 		<form action="" method="post" name="form" id="form1" onSubmit="return check()">
 		<div class="t12t">
-		<span class="cr">您的姓名：</span><input name="user" type="text" size="35" class="texts" />
+		<span>您的姓名：</span><input name="user" type="text" size="35" class="texts" />
 		<span class="cr"> *</span>
 		</div>
         	
 		<div class="t12t">
-		<span class="cr">联系方式：</span><input name="tel" type="text" onKeyPress="if (event.keyCode &lt; 45 || event.keyCode &gt; 57) event.returnValue = false;" size="35" class="texts" />
+		<span>联系方式：</span><input name="tel" type="text" onKeyPress="if (event.keyCode &lt; 45 || event.keyCode &gt; 57) event.returnValue = false;" size="35" class="texts" />
 		<span class="cr"> * </span>
 		</div>
         
         <div class="t12t">
-		<span class="cr">电子邮箱：</span><input name="email" type="text" size="35" class="texts" />
+		<span>电子邮箱：</span><input name="email" type="text" size="35" class="texts" />
 		<span class="cr"> * </span>
 		</div>
         
         <div class="t12t" style="width:700px;">
-            <span class="cr">留言标题：</span><input name="topic" type="text" size="65" class="text_l" />
+            <span>留言标题：</span><input name="topic" type="text" size="65" class="text_l" />
             <span class="cr"> * </span>
 		</div>
 		<div class="t12t" style="width:700px;">
-		<span class="cr" style="float:left;">评价内容：</span><textarea name="content" cols="50" rows="7" class="textarea"></textarea>
+		<span style="float:left;">评价内容：</span><textarea name="content" cols="50" rows="7" class="textarea"></textarea>
 		</div>
 		<div class="t12t">
-		<span class="cr">　验证码：</span><input type="text" value="" class="getcode" name="checkcode" maxlength="5" autocomplete="off" /> <span id="checkid" onClick="gcode()">点击获取验证码</span>
+		<span>　验证码：</span><input type="text" value="" class="getcode" name="checkcode" maxlength="5" autocomplete="off" /> <span id="checkid" onClick="gcode()">点击获取验证码</span>
 		</div>
 		<div class="t12t lh140 cz1" style="width:90%;padding:5px;">
 		<input type="submit" name="send" value="提交" class="posts" />

@@ -31,4 +31,16 @@ $(document).ready(function(){
 	}
 	var changeEvery = 20;
 	var itvl = setInterval(function(){autoAdvance()},changeEvery*200);//设置自动播放时间，越大越慢
+	
+	//banner下方的最新动态文字列表滚动效果
+	if( $(".reidtxtlist ul li").size()>1 ){
+		$(".reidtxtlist").jCarouselLite({
+			visible: 1,
+			scroll: 1,
+			auto: 3000,
+			vertical: top,
+			btnNext: ".xnt",
+			btnPrev: ".xpr" 
+		}); 
+	}
 });

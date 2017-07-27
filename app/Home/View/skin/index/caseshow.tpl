@@ -5,11 +5,11 @@
     <div class="cut"></div>
     <div class="main">
     <div class="left_menu">
-        <div class="left_menu_T"><b>PRODUCTS</b> / 产品中心</div>
+        <div class="left_menu_T"><b>CASE</b> / 应用案例</div>
         <div class="left_menu_D">
           <ul>
-          <volist name="protype" id="protypeobj">
-            <li <if condition="$protypeobj['Id'] eq $data['inftype']">class='left_ul_lis'<else/>class='left_ul_li'</if>><a href="{:U('index/prolist','inftype='.$protypeobj['Id'])}">{$protypeobj['topic']}</a></li>
+          <volist name="casetype" id="casetypeobj">
+            <li <if condition="$casetypeobj['Id'] eq $data['inftype']">class='left_ul_lis'<else/>class='left_ul_li'</if>><a href="{:U('index/caselist','inftype='.$casetypeobj['Id'])}">{$casetypeobj['topic']}</a></li>
           </volist>
           </ul>
         </div>
@@ -25,7 +25,7 @@
       </div>
     
       <div class="right">
-        <div class="right_t"><strong>{$metatitle}</strong><span>当前位置 > <a href="{:U('index/index')}">首页</a> > <a href="{:U('index/prolist')}">产品中心</a> > <a href="{:U('index/prolist','inftype='.$data['inftype'])}">{$metatitle}</a></span></div>
+        <div class="right_t"><strong>{$metatitle}</strong><span>当前位置 > <a href="{:U('index/index')}">首页</a> > <a href="{:U('index/caselist')}">应用案例</a> > <a href="{:U('index/caselist','inftype='.$data['inftype'])}">{$metatitle}</a></span></div>
         <div class="right_con">
         	<div class="right_cons">
             	<img src="__pic__/{$data['pic']}" width="259" height="195" />

@@ -89,14 +89,14 @@
    <div class="menu-header2"><?php echo icon('th-large');?> 关于我们管理 <?php echo icon('menu-down','b');?></div>
    <div class="menu-dd"><a href="<?php echo U('website/aboutlist','tables=aboutus');?>" target="right"><?php echo icon('th');?>关于我们管理</a></div> 
   </div>
-  <div class="menu-admin">  
+<!--  <div class="menu-admin">  
    <div class="menu-header2"><?php echo icon('th-large');?> 公司相册管理 <?php echo icon('menu-down','b');?></div>
    <div class="menu-dd"><a href="<?php echo U('website/aboutlist','tables=picshow');?>" target="right"><?php echo icon('th');?>公司相册管理</a></div> 
-  </div>
-  <div class="menu-admin">  
+  </div>-->
+<!--  <div class="menu-admin">  
    <div class="menu-header2"><?php echo icon('th-large');?> 企业优势管理 <?php echo icon('menu-down','b');?></div>
    <div class="menu-dd"><a href="<?php echo U('website/aboutlist','tables=advantage');?>" target="right"><?php echo icon('th');?>企业优势管理</a></div> 
-  </div>
+  </div>-->
   <div class="menu-admin">  
    <div class="menu-header2"><?php echo icon('list-alt');?> 新闻中心管理 <?php echo icon('menu-down','b');?></div>
    <div class="menu-dd"><a href="<?php echo U('website/datatypelist','tables=inftype');?>" target="right"><?php echo icon('tags');?>类别管理</a></div> 
@@ -106,6 +106,11 @@
    <div class="menu-header2"><?php echo icon('list-alt');?> 产品展示管理 <?php echo icon('menu-down','b');?></div>
    <div class="menu-dd"><a href="<?php echo U('website/datatypelist','tables=protype');?>" target="right"><?php echo icon('tags');?>类别管理</a></div> 
    <div class="menu-dd"><a href="<?php echo U('website/datalist','tables=proshow&martables=protype');?>" target="right"><?php echo icon('list-alt');?>产品管理</a></div>
+  </div>
+  <div class="menu-admin">  
+   <div class="menu-header2"><?php echo icon('list-alt');?> 应用案例管理 <?php echo icon('menu-down','b');?></div>
+   <div class="menu-dd"><a href="<?php echo U('website/datatypelist','tables=casetype');?>" target="right"><?php echo icon('tags');?>类别管理</a></div> 
+   <div class="menu-dd"><a href="<?php echo U('website/datalist','tables=caseshow&martables=casetype');?>" target="right"><?php echo icon('list-alt');?>案例管理</a></div>
   </div>
   <div class="menu-admin">  
    <div class="menu-header2"><?php echo icon('comment');?> 在线留言管理 <?php echo icon('menu-down','b');?></div>

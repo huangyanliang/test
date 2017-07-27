@@ -19,10 +19,10 @@
     <a href="{:U('index/index')}"><li <if condition="$mark eq 'index'">class="navs"</if>>网站首页</li></a>
     <a href="{:U('index/about','id=1')}"><li <if condition="$mark eq 'about'">class="navs"</if>>关于我们</li></a>
     <a href="{:U('index/prolist')}"><li <if condition="$mark eq 'product'">class="navs"</if>>产品中心</li></a>
-    <a href="{:U('index/picshow')}"><li <if condition="$mark eq 'picshow'">class="navs"</if>>应用案例</li></a>
-    <a href="{:U('index/newlist')}"><li <if condition="$mark eq 'new'">class="navs"</if>>新闻中心</li></a>
-    <a href="{:U('index/about','id=2')}"><li <if condition="$mark eq 'smyt'">class="navs"</if>>服务优势</li></a>
-    <a href="{:U('index/about','id=3')}"><li <if condition="$mark eq 'abouts'">class="navs"</if>>联系我们</li></a>
+    <a href="{:U('index/caselist')}"><li <if condition="$mark eq 'case'">class="navs"</if>>应用案例</li></a>
+    <a href="{:U('index/newlist')}"><li <if condition="$mark eq 'new'">class="navs"</if>>新闻动态</li></a>
+    <a href="{:U('index/about','id=2')}"><li <if condition="$mark eq 'abouts'">class="navs"</if>>服务支持</li></a>
+    <a href="{:U('index/about','id=3')}"><li <if condition="$mark eq 'smyt'">class="navs"</if>>联系我们</li></a>
     <a href="http://www.taobao.com" target="_blank"><li>商城入口</li></a>
     </ul>
 </div>
