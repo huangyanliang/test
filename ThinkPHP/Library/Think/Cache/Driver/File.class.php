@@ -112,7 +112,7 @@ class File extends Cache {
     /**
      * 写入缓存
      * @access public
-     * @param string $name 缓存变量名
+     * @param string $name 缓存变量名s
      * @param mixed $value  存储数据
      * @param int $expire  有效时间 0为永久
      * @return boolean

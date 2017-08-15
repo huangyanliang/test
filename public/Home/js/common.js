@@ -110,3 +110,12 @@ function webcode(){
 	  G("codeid").innerHTML = '<img src="'+file+'?t='+Math.random()+'" title="点击刷新验证码" style="cursor:pointer;border:0;vertical-align:middle;height:24px;" onclick="this.src=\''+file+'?t=\'+Math.random()" />'
 	}
 }
+
+$(function(){
+	$(".nav li").hover(function(){
+    		$(this).children("div").show();
+    	},function(){
+    		$(this).children("div").hide();
+    	}
+	);
+})

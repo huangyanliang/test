@@ -1,0 +1,3 @@
+<?php
+//000000003600a:7:{i:0;a:4:{s:2:"Id";s:1:"6";s:5:"topic";s:12:"商用电视";s:3:"pic";N;s:6:"domain";N;}i:1;a:4:{s:2:"Id";s:1:"7";s:5:"topic";s:15:"触摸一体机";s:3:"pic";N;s:6:"domain";N;}i:2;a:4:{s:2:"Id";s:1:"1";s:5:"topic";s:9:"广告机";s:3:"pic";N;s:6:"domain";N;}i:3;a:4:{s:2:"Id";s:1:"2";s:5:"topic";s:9:"拼接屏";s:3:"pic";N;s:6:"domain";N;}i:4;a:4:{s:2:"Id";s:1:"3";s:5:"topic";s:12:"定制显示";s:3:"pic";N;s:6:"domain";N;}i:5;a:4:{s:2:"Id";s:1:"4";s:5:"topic";s:15:"高清播放盒";s:3:"pic";N;s:6:"domain";N;}i:6;a:4:{s:2:"Id";s:1:"5";s:5:"topic";s:21:"多媒体发布系统";s:3:"pic";N;s:6:"domain";N;}}
+?>

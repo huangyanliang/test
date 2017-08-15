@@ -8,11 +8,10 @@
 	   $adv   = M('advdata')->field('pic,topic,linkurl')->where('enabled=1')->order('ord asc,date desc')->limit('4')->select();
 	   S('indexadv',$adv,$this->homecache_time);
 	 }
-	 $pro     = M('proshow')->field('pic,topic,en_topic,Id,intro,en_intro')->where('enabled=1')->order('ord asc,date desc')->limit('20')->select();
+	 $pro     = M('proshow')->field('pic,topic,en_topic,Id,intro,en_intro')->where('enabled=1 and istop=1')->order('ord asc,date desc')->limit('10')->select();
 	 $about   = M('aboutus')->field('pic,intro,en_intro')->where('enabled=1 and Id=1')->find();
-	 $new     = M('information')->field('Id,topic,en_topic,intro,en_intro,pic,date')->where('enabled=1 and inftype<>3')->order('ord asc,date desc')->limit(5)->select();
+	 $new     = M('caseshow')->field('Id,topic,en_topic,intro,en_intro,pic,date')->where('enabled=1 and inftype<>3')->order('ord asc,date desc')->limit(2)->select();
 	 $news    = M('information')->field('Id,topic,en_topic,intro,en_intro,date')->where('enabled=1 and inftype=3')->order('ord asc,date desc')->limit(5)->select();
-	 $topNew  = M('information')->field('Id,topic,intro,pic')->where('enabled=1 and inftype<>3 and istop=1')->order('date desc')->limit(1)->select();
 	 $this->assign('adv',$adv);
 	 $this->assign('pro',$pro);
 	 $this->assign('about',$about);
@@ -20,7 +19,6 @@
 	 $this->assign('en_metatitle','');
 	 $this->assign('new',$new);
 	 $this->assign('news',$news);
-	 $this->assign('topNew',$topNew);
 	 $this->assign('mark','index');
      $this->display('index');
    }
@@ -28,7 +26,6 @@
    public function about(){
 	 $id   = I('get.id',0,'intval');
 	 if (!$id) $this->error('Valid data is not found, please try again。');
-	 if($id == 1){$abs='about';}elseif($id==2){$abs='abouts';}elseif($id==3){$abs='smyt';}elseif($id==4){$abs='join';}
 	 $data = M('aboutus')->field('topic,en_topic,content,en_content')->where('Id='.$id)->find();
 	 if(!$data) $this->error('There is no data！！！');
 	 $this->assign('data',$data);
@@ -36,13 +33,12 @@
 	 $this->assign('id',$id);
 	 $this->assign('metatitle',$data['topic']);
 	 $this->assign('en_metatitle',$data['en_topic']);
-	 $this->assign('mark',$abs);
+	 $this->assign('mark','about');
 	 $this->display('aboutus');
    }
    //新闻列表
    public function newlist(){
 	 $inftype = I('get.inftype',0,'intval');
-	 if($inftype==3){$new_t='join';}else{$new_t='new';}
 	 $page    = I('get.p',1,'intval');
 	 $title   = '新闻动态';
 	 $en_title= 'News';
@@ -65,7 +61,7 @@
 	 $this->assign('inftype',$inftype);
 	 $this->assign('metatitle',$title);
 	 $this->assign('en_metatitle',$en_title);
-	 $this->assign('mark',$new_t);  
+	 $this->assign('mark','new');  
    	 $this->display('newlist');	
    }
    //新闻详情
@@ -131,6 +127,51 @@
 	   $this->assign('mark','product'); 
 	   $this->display('proshow');
    }
+   //方案列表
+   public function programlist(){
+	   $inftype = I('get.inftype',0,'intval');
+	   $page    = I('get.p',1,'intval');
+	   $title   = '方案';
+	   $en_title= 'Program';
+	   $search  = 'enabled=1';
+	   if($inftype!=0){
+		  $title =getdata('programtype',$inftype,'topic');
+		  $en_title =getdata('programtype',$inftype,'en_topic');
+		  if($title=='') $this->error('There is no data！！！');
+		  $search .= ' and inftype='.$inftype;
+	   }
+	   $count     = M('program')->where($search)->count();
+	   $pagesize  = 6;
+	   $pagecount = ceil($count/$pagesize);
+	   if($page>$pagecount) $page=$pagecount;
+	   $pobj    = new \Think\Page($count,$pagesize);
+	   $program     = M('program')->field('Id,topic,en_topic,pic,intro,en_intro')->where($search)->order('istop desc,ord asc,date desc')->page($page,$pagesize)->select();
+	   $this->assign('program',$program);
+	   $this->assign('page',$pobj->show());
+	   $this->assign('programtype',$this->getdbdata('programtype'));
+	   $this->assign('inftype',$inftype);
+	   $this->assign('metatitle',$title);
+	   $this->assign('en_metatitle',$en_title);
+	   $this->assign('mark','program'); 
+	   $this->display('programlist');
+   }
+   //方案详情
+   public function programshow(){
+   	   $id      = I('get.id',0,'intval');
+	   if (!$id) $this->error('Valid data is not found, please try again。');
+	   $data    = M('program')->field('*')->where('enabled=1 AND Id='.$id)->find();
+	   if(!$data) $this->error('There is no data！！！');
+	   $title   = getdata('programtype',$data['inftype'],'topic');
+	   $en_title   = getdata('programtype',$data['inftype'],'en_topic');
+	   $this->assign('data',$data);
+	   $this->assign('programtype',$this->getdbdata('programtype'));
+	   $this->assign('metatitle',$title);
+	   $this->assign('en_metatitle',$en_title);
+	   $this->assign('metades',$data['metades']);
+	   $this->assign('metakey',$data['keyword']);
+	   $this->assign('mark','program'); 
+	   $this->display('programshow');
+   }
    
    public function caselist(){//案例
 	   $inftype = I('get.inftype',0,'intval');
@@ -178,17 +219,16 @@
 	   $this->display('caseshow');
    }
    
-   public function advan(){
+   public function advantage(){
 	 $id   = I('get.id',0,'intval');
 	 if (!$id) $this->error('Valid data is not found, please try again。');
-	 $data = M('advantage')->field('topic,en_topic,content,en_content')->where('Id='.$id)->find();
-	 if(!$data) $this->error('There is no data！！！');
-	 $this->assign('data',$data);
-	 $this->assign('about',$this->getdbdata('advantage'));
+	 $advan = M('advantage')->field('topic,en_topic,content,en_content')->where('Id='.$id)->find();
+	 if(!$advan) $this->error('There is no data！！！');
+	 $this->assign('advan',$advan);
 	 $this->assign('id',$id);
-	 $this->assign('metatitle',$data['topic']);
-	 $this->assign('en_metatitle',$data['en_topic']);
-	 $this->assign('mark','index');
+	 $this->assign('metatitle',$advan['topic']);
+	 $this->assign('en_metatitle',$advan['en_topic']);
+	 $this->assign('mark','advantage');
 	 $this->display('advantage');
    }
    
@@ -259,18 +299,8 @@
 		imagepng($im);
 		imagedestroy($im);
 	}
-	//返回 单表 about
-	private function getdbdata($db='aboutus') {
-      if ($db != '') {
-	    if (!$data = S($db.'_data')) {
-		  $data = M($db)->field('Id,topic,en_topic,domain')->where('1=1 AND enabled=1')->order('ord ASC')->select();
-		  S($db.'_data',$data,$this->homecache_time);
-		} 
-		return $data;
-	  } else {
-	    return '';
-	  }
-	}
    
    
+	
+
  }

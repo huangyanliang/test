@@ -6,7 +6,7 @@
   public function _initialize(){
 	if(!$sysconf = S("sysconf")){  
 	 $sys = M("systemconfig");
-	 $needfield = 'metatitle,metades,metakey,companyname,address,en_metatitle,en_metades,en_metakey,en_companyname,en_address,email,tel,contact,mobile,icpnote,fax,c_site,c_text,sys_code,shieldip,iptips'; 
+	 $needfield = 'metatitle,metades,metakey,companyname,address,en_metatitle,en_metades,en_metakey,en_companyname,en_address,email,slogan,tel,contact,mobile,icpnote,fax,c_site,c_text,sys_code,shieldip,iptips'; 
 	 $sysconf   = $sys->field($needfield)->where('Id=1')->find();
 	 S("sysconf",$sysconf,$this->homecache_time);
 	}
@@ -32,6 +32,17 @@
 	  S('indexlink',$link,$this->homecache_time);
 	}
 	$this->assign('link',$link);//友情连接
+	$this->assign('aboutNav',$this->getdbdata('aboutus'));
+	$this->assign('protypeNav',$this->getdbdata('protype'));
+	$this->assign('programNav',$this->getdbdata('programtype'));
+	$this->assign('caseNav',$this->getdbdata('casetype'));
+	$this->assign('newNav',$this->getdbdata('inftype'));
+	$this->assign('advanNav',$this->getdbdata('advantage'));
+	$this->assign('advanTop',$this->getdbdata('advantage'));
+	$this->assign('proTop',$this->getdatas('proshow'));
+	$this->assign('programTop',$this->getdatas('program'));
+	$this->assign('caseTop',$this->getdatas('caseshow'));
+	$this->assign('newTop',$this->getdatas('information'));
   }
   //屏蔽IP
   private function shieldip($ip,$shieldip,$iptips=''){
@@ -66,4 +77,27 @@
 	 return $string;
    }
  }
+ 
+ //返回 单表 
+	public function getdbdata($db='aboutus') {
+      if ($db != '') {
+	    if (!$data = S($db.'_data')) {
+		  $data = M($db)->field('Id,topic,pic,domain')->where('1=1 AND enabled=1')->order('ord ASC')->select();
+		  S($db.'_data',$data,$this->homecache_time);
+		} 
+		return $data;
+	  } else {
+	    return '';
+	  }
+	}
+//返回 单表 
+	public function getdatas($db='') {
+      if ($db != '') {
+	     $datas = M($db)->field('Id,topic,pic')->where('enabled=1 and istop=1')->order('ord asc,date desc')->limit(1)->select();
+		return $datas;
+	  } else {
+	    return '';
+	  }
+	}
+ 
 } 
